@@ -1,0 +1,9 @@
+ATAJOS:
+GUARDAR	>>>	Ctrl + Shift + S  INDENTAR	>>>	Alt + Shift + F
+COMENTAR	>>>	Ctrl + Shift + C
+MENU                 >>>  Ctrl + espacio
+F6 RUN
+CONSTRUCTOR	 >>>	Alt + Insert  SETTERS	 >>>	Alt + Insert  GETTERS	 >>>	Alt + Insert
+TO STRING         >>>	Alt + Insert
+RELLERAR FOR… aprieto control más espacio o TAB
+MINIMISA LOS SET Y METODOS Ctrol + shift + -
