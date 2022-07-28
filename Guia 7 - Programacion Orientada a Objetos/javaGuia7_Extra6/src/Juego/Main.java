@@ -76,8 +76,5 @@ Mensaje: Lo sentimos, no hay más oportunidades   */
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         Ahorcado a1 = new Ahorcado();
         a1.juego();
-        
-        
     }
- 
-}
+ }

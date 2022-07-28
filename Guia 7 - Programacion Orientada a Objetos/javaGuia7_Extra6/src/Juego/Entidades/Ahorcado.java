@@ -78,7 +78,7 @@ valor que ingresó el usuario y encontradas en 0.
     public void crearJuego()
     {
         System.out.println("Ingrese la palabra a adivinar");
-        String pal = leer.next();
+        String pal = leer.next().toLowerCase();
         
         //Asigno el largo al vector segun el largo de "pal"
         palabra = new String[pal.length()];
@@ -92,19 +92,18 @@ valor que ingresó el usuario y encontradas en 0.
         for(int i=0;i<pal.length();i++)
         {
             palabra[i]=pal.substring(i, i+1);
-            System.out.println(palabra[i]);
         }
         
         //Imprimo cada posicion para chequear
         for (int i=0;i<pal.length();i++) 
         {
-            System.out.print("{"+palabra[i]+"}");
-                       
+            System.out.print("{"+palabra[i]+"}");             
         }
         System.out.println("");
         System.out.println("Ingrese la cantidad de oportunidades para adivinar la palabra");
         intentos=leer.nextInt();
         aciertos=0;
+        System.out.println("-----------------\n");
         
     }
 /*• Método longitud(): muestra la longitud de la palabra que se debe encontrar. Nota:
@@ -146,10 +145,10 @@ busque una letra que no esté, se le restará uno a sus oportunidades.*/
                 aciertos++;
             }
         }
-        System.out.println("Número de letras (encontradas, faltantes): ("+aciertos+","+((palabra.length)-aciertos)+")");
+        System.out.println("Número de letras (encontradas, totales): ("+aciertos+","+palabra.length+")");
         
         // Aca voy imprimiendo aux2, con las letras adivinadas dentro de la palabra
-        for (int i=0;i<palabra.length;i++) 
+        for (int i=0;i<palabra.length;i++)
         {
             System.out.print(" "+aux2[i]+" ");
         }
@@ -191,10 +190,10 @@ se quede sin intentos. Este método se llamará en el main.*/
     {
         crearJuego();
         longitud();
-        System.out.println("-----------------\n");
+        
         do{
         System.out.println("Ingrese una letra para buscar en la palabra");
-        String busqueda = leer.next();
+        String busqueda = leer.next().toLowerCase();
                 
         // Aca verifico si ya adivine esa letra, a traves del metodo letraRepetida.
         // Si ya lo habia adivinado, le pido otra.
@@ -206,13 +205,15 @@ se quede sin intentos. Este método se llamará en el main.*/
                 
         buscarLetra(busqueda);
         encontrarLetra(busqueda);
-        System.out.println("Oportunidades restantes:"+intentos);
+        
+        System.out.println("\nOportunidades restantes:"+intentos+"");
+        System.out.println("-----------------\n");
         
         //Aca comparo cantidad de aciertos con el largo de la palabra.
         //Si son iguales, significa que ya adivine todas las letras
         if(aciertos==palabra.length)
         {
-            System.out.println("Has adivinado la palabra!!");
+            System.out.println("Has adivinado la palabra!!\n");
             break;
         }
         }while(aciertos<palabra.length&&intentos>0);
