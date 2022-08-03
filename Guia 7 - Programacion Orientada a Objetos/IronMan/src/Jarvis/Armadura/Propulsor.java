@@ -3,8 +3,10 @@ package Jarvis.Armadura;
 
 
 public class Propulsor {
-    private boolean status=false;
+    public boolean status=true;
+    public boolean destruido=false;
     private float consumoBase= (float) 2.5;
+    
 
     public Propulsor() {
     }
@@ -22,8 +24,55 @@ public class Propulsor {
     }
     public void controlDaños()
     {
-        if(Math.random()<0.3)
-            status=true;
+        if(destruido)
+        {
+            status=false;
+        }else if(Math.random()<=0.05&&status)
+        {
+            status=false;
+            System.out.println("El propulsor se ha dañado");
+             //consumir consola
+        }
+    }
+    
+    public void reparar()
+    {
+        if(destruido)
+        {
+            
+        }
+        else if(!status)
+        {
+            if(Math.random()>=0.4)
+            {
+                status=true;
+                System.out.println("El propulsor se ha reparado");
+                 //consumir consola
+            }
+        }
+    }
+    
+    public void revisar()
+    {
+        if(destruido)
+        {
+            
+        }
+        else if(!status)
+        {
+            if(Math.random()<=0.05)
+            {
+                destruido=true;
+                System.out.println("El propulsor fue destruido");
+                 //consumir consola
+            }
+            else
+            {
+                status=true;
+                System.out.println("El propulsor fue reparado");
+                 //consumir consola
+            }
+        }
     }
     
 }

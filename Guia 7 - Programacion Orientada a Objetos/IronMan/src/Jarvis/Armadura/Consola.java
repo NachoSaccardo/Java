@@ -3,7 +3,7 @@ package Jarvis.Armadura;
 
 
 public class Consola {
-    private boolean status=false;
+    public boolean status=true;
     private float consumoBase=1;
 
     public Consola() {
@@ -22,8 +22,11 @@ public class Consola {
     }
     public void controlDaños()
     {
-        if(Math.random()<0.3)
-            status=true;
+        if(Math.random()<0.05&&status)
+        {
+            status=false;
+            System.out.println("La consola se ha dañado");
+        }
     }
     
     

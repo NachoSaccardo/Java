@@ -3,7 +3,7 @@ package Jarvis.Armadura;
 
 
 public class Sintetizador {
-    private boolean status=false;
+    public boolean status=true;
     private float consumoBase=(float)1.5;
 
     public Sintetizador() {
@@ -22,8 +22,11 @@ public class Sintetizador {
     }
     public void controlDaños()
     {
-        if(Math.random()<0.3)
-            status=true;
+        if(Math.random()<0.05&&status)
+        {
+            status=false;
+            System.out.println("El propulsor se ha dañado");
+        }
     }    
     
 }
