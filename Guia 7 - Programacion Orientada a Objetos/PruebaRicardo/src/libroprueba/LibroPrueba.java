@@ -13,13 +13,26 @@ public class LibroPrueba {
         
         try {
             System.out.println("Introducir texto,"+"Pulse [Entrar] despues de cada linea.");
-            System.out.println("Para finalizar pulsar ctrl+z.\n");
+            System.out.println("Para finalizar pulsar ¬ y luego Enter.\n");
             while ((car=(char)System.in.read())!=eof)
-            {
+            {/*
+                 if (car=='\r')continue;//le sigue un \n
+                ncaracteres++;//contador de caracteres
+                if (car == ''|| car == '\n'||car == '\t')
+                palabra=false;
+                else if(!palabra)//comienzaa una palabra
+                {
+                    npalabras++;//contador de palabras
+                    palabra=tru
+
+                
+                */
+                
                 //[entrar]= CRLF=\r\n
                 if (car=='\r')continue;//le sigue un \n
+                if(car!=' ')
                 ncaracteres++;//contador de caracteres
-                if (car==null)
+                if (car==' '||car== '\t' || car=='\n')
                 {
                 palabra=false;
                 }else if(!palabra)//comienzaa una palabra
@@ -27,11 +40,12 @@ public class LibroPrueba {
                     npalabras++;//contador de palabras
                     palabra=true;
                 }
-                if (car=='\n')//finaliza una linea
-                    nlineas++;//contador de lineas
+                if (car=='\n')  //finaliza una linea
+                    nlineas++;  //contador de lineas
             }
+            
             System.out.println("");
-            System.out.println(ncaracteres+""+ npalabras+""+nlineas);
+            System.out.println("caracteres: "+ncaracteres+" // palabras: "+ npalabras+"// lineas: "+nlineas);
             
         }catch (IOException ignorada){}
     }
