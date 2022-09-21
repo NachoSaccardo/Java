@@ -22,7 +22,7 @@ public class Propulsor {
     public void setConsumoBase(float consumoBase) {
         this.consumoBase = consumoBase;
     }
-    public void controlDaños()
+    public void controlDanos()
     {
         if(destruido)
         {

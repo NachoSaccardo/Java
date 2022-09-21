@@ -69,7 +69,7 @@ public class ServiciosCuenta {
                 c1.setSaldoActual(0);
             }
             System.out.println(c1);
-        } catch (NullPointerException e) {
+        } catch (NullPointerException ex) {
             System.out.println("Indico una cuenta inexistente");
         }
     }

@@ -25,8 +25,8 @@ public class Armadura
         {
             if(botaIzquierda.status&&botaDerecha.status)
             {
-                botaIzquierda.controlDaños();
-                botaDerecha.controlDaños();
+                botaIzquierda.controlDanos();
+                botaDerecha.controlDanos();
                 
                 if(botaIzquierda.status&&botaDerecha.status)
                 {
@@ -76,8 +76,8 @@ public class Armadura
         {
             if(botaIzquierda.status&botaDerecha.status)
             {
-                botaIzquierda.controlDaños();
-                botaDerecha.controlDaños();
+                botaIzquierda.controlDanos();
+                botaDerecha.controlDanos();
                 
                 if(botaIzquierda.status&botaDerecha.status)
                 {
@@ -126,8 +126,8 @@ public class Armadura
             {
                 if(botaIzquierda.status&botaDerecha.status)
                 {
-                    botaIzquierda.controlDaños();
-                    botaDerecha.controlDaños();
+                    botaIzquierda.controlDanos();
+                    botaDerecha.controlDanos();
 
                     float consumototal = consola.getConsumoBase()+tiempo*3*(botaIzquierda.getConsumoBase()+botaDerecha.getConsumoBase());
                     System.out.println("Se ha propulsado durante "+tiempo+" minutos");
@@ -175,10 +175,10 @@ public class Armadura
         {
             if(botaIzquierda.status&botaDerecha.status&guanteIzquierdo.status&guanteDerecho.status)
                 {
-                    botaIzquierda.controlDaños();
-                    botaDerecha.controlDaños();
-                    guanteIzquierdo.controlDaños();
-                    guanteDerecho.controlDaños();
+                    botaIzquierda.controlDanos();
+                    botaDerecha.controlDanos();
+                    guanteIzquierdo.controlDanos();
+                    guanteDerecho.controlDanos();
                     
                     if(botaIzquierda.status&botaDerecha.status&guanteIzquierdo.status&guanteDerecho.status)
                     {
@@ -240,8 +240,8 @@ public class Armadura
         {
             if(guanteIzquierdo.status&guanteDerecho.status)
             {    
-                guanteIzquierdo.controlDaños();
-                guanteDerecho.controlDaños();
+                guanteIzquierdo.controlDanos();
+                guanteDerecho.controlDanos();
                 
                 if(guanteIzquierdo.status&guanteDerecho.status)
                 {

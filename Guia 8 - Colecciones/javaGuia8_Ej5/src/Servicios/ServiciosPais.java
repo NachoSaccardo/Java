@@ -10,6 +10,7 @@ import Utilidades.Comparadores;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.InputMismatchException;
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -26,23 +27,38 @@ public class ServiciosPais
     {
         
         String salida = "s";
+        int bandera=0;
         
         while(salida.equals("s"))
         {   Pais pais = new Pais();
             System.out.println("Ingrese el nombre");
-            pais.setNombre(leer.next());
-            System.out.println("Ingrese la superficie");
-            pais.setSuperficie(leer.nextDouble());
+            pais.setNombre(leer.next().toLowerCase());
+            do 
+            {
+                try 
+                {  
+                    System.out.println("Ingrese la superficie");
+                   
+                    pais.setSuperficie(Double.parseDouble(leer.next()));
+                    break;
+                }
+                catch(NumberFormatException ex)
+                {   
+                       System.out.println("Ingreso un valor no valido");
+                }
+            }while(bandera==0);
+            
+            
             System.out.println("Ingrese la cantidad de habitantes");
             pais.setHabitantes(leer.nextDouble());
             System.out.println("Ingrese el idioma");
-            pais.setIdioma(leer.next());
+            pais.setIdioma(leer.next().toLowerCase());
             paises.add(pais);
 
             System.out.println("Desea crear otro pais? (s/n)");
             do 
             { 
-                salida=leer.next();
+                salida=leer.next().toLowerCase();
             } 
             while (!salida.equals("s")&&!salida.equals("n"));
             System.out.println(" ");
@@ -73,7 +89,7 @@ public class ServiciosPais
     public void eliminarPais()
     {
         System.out.println("Ingrese un pais a eliminar");
-        String eliminar=leer.next();
+        String eliminar=leer.next().toLowerCase();
         Iterator<Pais> it = paises.iterator();
         boolean bandera=false;
         
