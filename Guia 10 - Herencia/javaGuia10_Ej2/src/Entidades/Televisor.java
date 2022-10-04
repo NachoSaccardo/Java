@@ -52,7 +52,7 @@ public class Televisor extends Electrodomestico
     
     public void crearTelevisor()
     {
-        super.crearElectrodomestico();
+        crearElectrodomestico();
         System.out.println("Ingrese la resolucion en pulgadas");
         setResolucion(leer.nextInt());
         System.out.println("Tiene TDT?? ( S / N )");

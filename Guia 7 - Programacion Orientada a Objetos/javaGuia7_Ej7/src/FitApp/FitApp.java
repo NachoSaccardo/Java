@@ -7,7 +7,8 @@ import java.util.Scanner;
 public class FitApp {
 
     public static void main(String[] args) 
-    {   Scanner leer = new Scanner(System.in).useDelimiter("\n");
+    {  
+        Scanner leer = new Scanner(System.in).useDelimiter("\n");
         ServiciosPersona SP = new ServiciosPersona();
         int indice=-2;
         int totalflacos=0;
@@ -15,8 +16,8 @@ public class FitApp {
         int totalgordos=0;
         int totalmayores=0;
         int totalmenores=0;
-   
-        
+        int aux;
+                
         int opcion=-2;
         while(opcion!=-1){
             System.out.println("Desea crear otra persona?");
@@ -24,7 +25,12 @@ public class FitApp {
             
             System.out.println("Indique el indice de la persona a calcular IMC y edad.\nPara finalizar ingrese -1");
             
-            indice=leer.nextInt();
+            aux=leer.nextInt();
+            if(aux==-1)
+                break;
+            else
+                indice=aux;
+            
             SP.esMayorDeEdad(indice);
             SP.calcularIMC(indice);
 

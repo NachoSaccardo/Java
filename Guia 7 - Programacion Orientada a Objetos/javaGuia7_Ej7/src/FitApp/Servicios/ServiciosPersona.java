@@ -9,6 +9,7 @@ public class ServiciosPersona {
     Scanner leer = new Scanner(System.in).useDelimiter("\n");
     private int indice = 0;
 
+        
     public Persona crearPersona() {
         int pivot = 0;
         String genero;

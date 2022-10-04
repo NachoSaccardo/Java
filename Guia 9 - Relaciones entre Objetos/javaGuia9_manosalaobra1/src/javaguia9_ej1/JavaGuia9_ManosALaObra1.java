@@ -5,8 +5,8 @@ acceder luego a los atributos del dni de la persona creando objetos y jugando de
  */
 package javaguia9_ej1;
 
-import Entiidades.DNI;
-import Entiidades.Persona;
+import Entidades.DNI;
+import Entidades.Persona;
 import java.util.Scanner;
 
 public class JavaGuia9_ManosALaObra1 {

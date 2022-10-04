@@ -46,7 +46,8 @@ funcionalidad. Si tiene una carga mayor de 30 kg, aumentará el precio en $500, 
 carga es menor o igual, no se incrementará el precio. Este método debe llamar al
 método padre y añadir el código necesario. Recuerda que las condiciones que hemos
 visto en la clase Electrodoméstico también deben afectar al precio.*/
-    @Override
+   
+   @Override
     public void precioFinal()
     {
         super.precioFinal();
