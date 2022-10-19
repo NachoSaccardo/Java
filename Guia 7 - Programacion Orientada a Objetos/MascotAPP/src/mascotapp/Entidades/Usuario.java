@@ -12,12 +12,13 @@ public class Usuario {
 
     //Agrego el constructor
     //Automaticamente lo puedo generar con Alt+Insert
-    public Usuario(String nombre, String apellido, String pais, Date nacimiento, int dni) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.pais = pais;
-        this.nacimiento = nacimiento;
-        this.dni = dni;
-    }
+//    public Usuario(String nombre, String apellido, String pais, Date nacimiento, int dni) {
+//        this.nombre = nombre;
+//        this.apellido = apellido;
+//        this.pais = pais;
+//        this.nacimiento = nacimiento;
+//        this.dni = dni;
+//    }
 
+    
 }

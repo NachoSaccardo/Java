@@ -15,11 +15,12 @@ public class NombreyEdad {
     public static void main(String[] args) {
         // TODO code application logic here
 
-        /* 
-    InputStreamReader ir = new InputStreamReader(System. in );
-    BufferedReader br = new BufferedReader(ir);
-   //nombre = br.readLine();
-         */
+        
+        InputStreamReader ir = new InputStreamReader(System. in );
+        BufferedReader br = new BufferedReader(ir);
+        nombre = br.readLine();
+        System.out.println(nombre);
+         
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         int edad;
 

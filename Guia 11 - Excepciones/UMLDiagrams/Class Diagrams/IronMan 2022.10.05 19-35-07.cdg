@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="IronMan">
+  <ClassDiagramComponents>
+    <Class name="Armadura" package="Jarvis.Armadura" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="colorprimario" type="String" visibility="private"/>
+        <Field name="colorsecundario" type="String" visibility="private"/>
+        <Field name="resistencia" type="int" visibility="private"/>
+        <Field name="salud" type="int" visibility="private"/>
+        <Field name="reactor" type="Reactor" visibility="package"/>
+        <Field name="consola" type="Consola" visibility="package"/>
+        <Field name="sintetizador" type="Sintetizador" visibility="package"/>
+        <Field name="botaIzquierda" type="Propulsor" visibility="package"/>
+        <Field name="botaDerecha" type="Propulsor" visibility="package"/>
+        <Field name="guanteIzquierdo" type="Repulsor" visibility="package"/>
+        <Field name="guanteDerecho" type="Repulsor" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="caminar" returnType="float" visibility="public">
+          <Argument type="int" name="tiempo"/>
+        </Method>
+        <Method name="correr" returnType="float" visibility="public">
+          <Argument type="int" name="tiempo"/>
+        </Method>
+        <Method name="propulsar" returnType="float" visibility="public">
+          <Argument type="int" name="tiempo"/>
+        </Method>
+        <Method name="volar" returnType="float" visibility="public">
+          <Argument type="int" name="tiempo"/>
+        </Method>
+        <Method name="disparar" returnType="float" visibility="public">
+          <Argument type="int" name="tiempo"/>
+        </Method>
+        <Method name="mostrarEstado" returnType="void" visibility="public"/>
+        <Method name="mostrarBateria" returnType="void" visibility="public"/>
+        <Method name="mostrarReactorHP" returnType="void" visibility="public"/>
+        <Method name="mostrarReactorBHP" returnType="void" visibility="public"/>
+        <Method name="revisarDispositivos" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Consola" package="Jarvis.Armadura" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="status" type="boolean" visibility="public"/>
+        <Field name="consumoBase" type="float" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="isStatus" returnType="boolean" visibility="public"/>
+        <Method name="setStatus" returnType="void" visibility="public">
+          <Argument type="boolean" name="status"/>
+        </Method>
+        <Method name="getConsumoBase" returnType="float" visibility="public"/>
+        <Method name="setConsumoBase" returnType="void" visibility="public">
+          <Argument type="float" name="consumoBase"/>
+        </Method>
+        <Method name="controlDanos" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Propulsor" package="Jarvis.Armadura" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="status" type="boolean" visibility="public"/>
+        <Field name="destruido" type="boolean" visibility="public"/>
+        <Field name="consumoBase" type="float" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="isStatus" returnType="boolean" visibility="public"/>
+        <Method name="setStatus" returnType="void" visibility="public">
+          <Argument type="boolean" name="status"/>
+        </Method>
+        <Method name="getConsumoBase" returnType="float" visibility="public"/>
+        <Method name="setConsumoBase" returnType="void" visibility="public">
+          <Argument type="float" name="consumoBase"/>
+        </Method>
+        <Method name="controlDanos" returnType="void" visibility="public"/>
+        <Method name="reparar" returnType="void" visibility="public"/>
+        <Method name="revisar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Reactor" package="Jarvis.Armadura" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="status" type="boolean" visibility="private"/>
+        <Field name="energiareactor" type="float" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="isStatus" returnType="boolean" visibility="public"/>
+        <Method name="setStatus" returnType="void" visibility="public">
+          <Argument type="boolean" name="status"/>
+        </Method>
+        <Method name="getEnergiareactor" returnType="float" visibility="public"/>
+        <Method name="setEnergiareactor" returnType="void" visibility="public">
+          <Argument type="float" name="energiareactor"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Repulsor" package="Jarvis.Armadura" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields>
+        <Field name="status" type="boolean" visibility="public"/>
+        <Field name="consumoBase" type="float" visibility="private"/>
+        <Field name="destruido" type="boolean" visibility="public"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="isStatus" returnType="boolean" visibility="public"/>
+        <Method name="setStatus" returnType="void" visibility="public">
+          <Argument type="boolean" name="status"/>
+        </Method>
+        <Method name="getConsumoBase" returnType="float" visibility="public"/>
+        <Method name="setConsumoBase" returnType="void" visibility="public">
+          <Argument type="float" name="consumoBase"/>
+        </Method>
+        <Method name="controlDanos" returnType="void" visibility="public"/>
+        <Method name="reparar" returnType="void" visibility="public"/>
+        <Method name="revisar" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Sintetizador" package="Jarvis.Armadura" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields>
+        <Field name="status" type="boolean" visibility="public"/>
+        <Field name="consumoBase" type="float" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="isStatus" returnType="boolean" visibility="public"/>
+        <Method name="setStatus" returnType="void" visibility="public">
+          <Argument type="boolean" name="status"/>
+        </Method>
+        <Method name="getConsumoBase" returnType="float" visibility="public"/>
+        <Method name="setConsumoBase" returnType="void" visibility="public">
+          <Argument type="float" name="consumoBase"/>
+        </Method>
+        <Method name="controlDanos" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Jarvis" package="Jarvis" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ServiciosArmadura" package="Jarvis.Servicios" visibility="public" xPosition="2120.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="botaDerecha" source="Jarvis.Armadura.Armadura" target="Jarvis.Armadura.Propulsor" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="guanteIzquierdo" source="Jarvis.Armadura.Armadura" target="Jarvis.Armadura.Repulsor" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="reactor" source="Jarvis.Armadura.Armadura" target="Jarvis.Armadura.Reactor" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="guanteDerecho" source="Jarvis.Armadura.Armadura" target="Jarvis.Armadura.Repulsor" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="consola" source="Jarvis.Armadura.Armadura" target="Jarvis.Armadura.Consola" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="sintetizador" source="Jarvis.Armadura.Armadura" target="Jarvis.Armadura.Sintetizador" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="botaIzquierda" source="Jarvis.Armadura.Armadura" target="Jarvis.Armadura.Propulsor" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

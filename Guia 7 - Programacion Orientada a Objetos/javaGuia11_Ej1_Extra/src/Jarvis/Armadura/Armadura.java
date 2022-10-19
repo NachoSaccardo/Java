@@ -4,21 +4,17 @@ package Jarvis.Armadura;
 
 public class Armadura 
 {
-    private String colorprimario="Amarillo";
-    private String colorsecundario="Rojo";
-    private int resistencia=65;
-    private int salud=100;
+    private final String colorprimario="Amarillo";
+    private final String colorsecundario="Rojo";
+    private final int resistencia=65;
+    private final int salud=100;
     Reactor reactor = new Reactor();
-    Consola consola = new Consola();
-    Sintetizador sintetizador = new Sintetizador();
-    Propulsor botaIzquierda= new Propulsor();
-    Propulsor botaDerecha= new Propulsor();
-    Repulsor guanteIzquierdo=new Repulsor();
-    Repulsor guanteDerecho=new Repulsor();
-
-    public Armadura() {
-    }
-    
+    Consola consola = new Consola(1);
+    Sintetizador sintetizador = new Sintetizador(2f);
+    Propulsor botaIzquierda= new Propulsor(2.5f);
+    Propulsor botaDerecha= new Propulsor(2.5f);
+    Repulsor guanteIzquierdo=new Repulsor(2f);
+    Repulsor guanteDerecho=new Repulsor(2f);
     
     
     public float caminar(int tiempo)

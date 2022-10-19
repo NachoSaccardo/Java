@@ -19,26 +19,29 @@ utilizando bloques try/catch para las distintas excepciones
 
 public class Main {
 
-    public static void main(String[] args) 
+    public static void main(String[] args) throws Exception 
     {
         Scanner leer = new Scanner(System.in).useDelimiter("\n");
         String a;
         String b;
         try
         {
+            
             System.out.println("Ingrese el primer numero (Numerador)");
             a=leer.next();
+            
             System.out.println("Ingrese el segundo numero (Denominador)");
             b=leer.next();
+            
             int c = Integer.parseInt(a);
+            System.out.println("c: "+c);
             int d = Integer.parseInt(b);
+            System.out.println("d: "+d);
+           
             DividirNumeros(c, d);
             
         }
-        catch (InputMismatchException e)
-        {
-              System.out.println("El valor ingresado no es un entero");      
-        }
+
         catch(ArithmeticException f)
         {
             System.out.println("No se puede dividir por cero");
@@ -46,15 +49,22 @@ public class Main {
         catch(NumberFormatException h)
         {
             System.out.println("El valor ingresado no es un entero");
+          //  throw new Exception("Esta Excepcion me la invente");
+        }
+        finally
+        {
+            
+            System.out.println("Este es el mensaje final");
         }
         
         
     }
     
-    public static void DividirNumeros(int a, int b)
+    public static void DividirNumeros(int c, int d)
     {
-        System.out.println("Division: "+a/b);
+        double j = ((double) c / (double) d);
+        
+        System.out.println("Division: "+j);
     }
-           
-    
+ 
 }

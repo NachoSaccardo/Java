@@ -8,6 +8,8 @@ public class Sintetizador {
 
     public Sintetizador() {
     }
+    
+    
     public boolean isStatus() {
         return status;
     }
