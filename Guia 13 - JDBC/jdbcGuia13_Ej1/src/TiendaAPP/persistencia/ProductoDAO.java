@@ -1,22 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package TiendaAPP.persistencia;
 
-import TiendaAPP.dominio.producto.Producto;
+import TiendaAPP.entidades.Producto;
 import java.util.ArrayList;
 import java.util.Collection;
 
-/**
- *
- * @author juans
- */
-public final class productoDAO extends DAO
+public final class ProductoDAO extends DAO
 {
 
-    public productoDAO() 
+    public ProductoDAO() 
     {
     }
     
@@ -45,7 +37,9 @@ public final class productoDAO extends DAO
             if(producto ==null)
                 throw new Exception("Debe indicar un producto valido");
             
-            String sql = "UPDATE Producto SET nombre= '"+producto.getNombre()+"' WHERE codigo='"+producto.getCodigo()+"';";
+            //UPDATE producto SET nombre="casa", precio=500, codigo_fabricante=2 WHERE codigo=1;
+            
+            String sql = "UPDATE Producto SET nombre='"+producto.getNombre()+"', precio="+producto.getPrecio()+", codigo_fabricante ="+producto.getCodigo_fabricante()+" WHERE codigo='"+producto.getCodigo()+"';";
             
             insertarModificarEliminar(sql);
         } 
