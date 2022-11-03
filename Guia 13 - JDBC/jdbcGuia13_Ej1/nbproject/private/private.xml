@@ -2,15 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/juans/Escritorio/Programacion/Full%20Stack/Java/Guia%2013%20-%20JDBC/jdbcGuia13_Ej1/src/TiendaAPP/persistencia/DAO.java</file>
-            <file>file:/C:/Users/juans/Escritorio/Programacion/Full%20Stack/Java/Guia%2013%20-%20JDBC/jdbcGuia13_Ej1/src/TiendaAPP/persistencia/ProductoDAO.java</file>
-            <file>file:/C:/Users/juans/Escritorio/Programacion/Full%20Stack/Java/Guia%2013%20-%20JDBC/jdbcGuia13_Ej1/src/TiendaAPP/entidades/Producto.java</file>
-            <file>file:/C:/Users/juans/Escritorio/Programacion/Full%20Stack/Java/Guia%2013%20-%20JDBC/jdbcGuia13_Ej1/src/TiendaAPP/principal/Main.java</file>
-            <file>file:/C:/Users/juans/Escritorio/Programacion/Full%20Stack/Java/Guia%2013%20-%20JDBC/jdbcGuia13_Ej1/src/TiendaAPP/persistencia/FabricanteDAO.java</file>
-            <file>file:/C:/Users/juans/Escritorio/Programacion/Full%20Stack/Java/Guia%2013%20-%20JDBC/jdbcGuia13_Ej1/src/TiendaAPP/servicios/FabricanteService.java</file>
-            <file>file:/C:/Users/juans/Escritorio/Programacion/Full%20Stack/Java/Guia%2013%20-%20JDBC/jdbcGuia13_Ej1/src/TiendaAPP/servicios/ProductoService.java</file>
-            <file>file:/C:/Users/juans/Escritorio/Programacion/Full%20Stack/Java/Guia%2013%20-%20JDBC/jdbcGuia13_Ej1/src/TiendaAPP/entidades/Fabricante.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

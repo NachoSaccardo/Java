@@ -1,6 +1,6 @@
 package principal;
 
-
+//jdbc:mysql://localhost:3306/estancias_exterior?zeroDateTimeBehavior=convertToNull
 public class Main {
 
     /**
