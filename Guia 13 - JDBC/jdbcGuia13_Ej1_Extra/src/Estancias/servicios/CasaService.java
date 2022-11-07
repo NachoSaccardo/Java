@@ -157,7 +157,7 @@ public final class CasaService
            System.out.println("Menu Casa:");
            System.out.println("-----------------------------------------");
            System.out.println("Seleccione una opcion\n1: Listar las casas disponibles\n2: Crear una nueva Casa\n3: Modificar una casa\n"
-                   + "4: Eliminar una casa\n9: Salir ");
+                   + "4: Eliminar una casa\n9: Volver al Menu Principal ");
            System.out.println("-----------------------------------------");
            opcion = leer.nextInt();
            switch(opcion)
@@ -231,9 +231,10 @@ public final class CasaService
                     }
                     break;
                 default:
+                    System.out.println("Opcion incorrecta");
                     break;
              }
-       }while(opcion!=9);
+       }while(opcion!=0);
     }
     
     public void mostrarCasaPorCodigo(int id_casa) throws Exception{

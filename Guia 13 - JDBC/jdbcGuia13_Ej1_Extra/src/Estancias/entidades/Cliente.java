@@ -10,6 +10,7 @@ public class Cliente
     private String calle; 
     private Integer numero;
     private String codigo_postal;
+    private String ciudad;
     private String pais;
     private String email;
 
@@ -66,6 +67,14 @@ public class Cliente
         this.codigo_postal = codigo_postal;
     }
 
+    public String getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(String calle) {
+        this.ciudad = ciudad;
+    }
+    
     public String getPais() {
         return pais;
     }
