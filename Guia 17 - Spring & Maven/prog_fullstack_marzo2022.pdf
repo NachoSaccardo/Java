@@ -1,0 +1,60 @@
+<<<	PASOS EN VISUAL STUDIO CODE PARA SPRING	>>>
+
+1.	Apretar F1
+
+2.	Create a		>>>	Spring Initializr: Create a Maven Project
+
+3.	Versión		>>>	3.0 (La más alta que no tenga nada en paréntesis)
+
+4.	Lenguaje		>>>	Java
+
+5.	com.example		>>>	com.nombre_proyecto
+
+6.	demo			>>>	Nombre_aplicación
+
+7.	Paquetes		>>>	Jar
+
+8.	Versión Java	>>>	17 o última versión disponible
+
+9.	Dependencias	>>>	Spring Boot DevTools / Spring Web / Thymeleaf / MySQL Driver / Spring Data JPA
+
+10.	Guardar Carpeta	>>>	Elegir carpeta de destino
+
+11.	Nueva ventana VS	>>>	Buscar MAIN en paquete SRC
+
+12.	Apretar F5		>>>	Esperar a que aparezca el logo de SPRING
+
+
+
+<<<	DATABASE	>>>
+
+13.	Crear BASE DATOS	>>>	Desde Visual Studio o WorkBench
+
+14.	Create connection	>>>	Host: localhost / Port: 3306 / Username: root / Password: root	>>>	CONNECT
+
+
+
+<<<	APPLICATION PROPERTIES	>>>
+
+15.	Buscar: 		>>>	application.properties
+
+16.	Pegar:		>>>	
+
+spring.datasource.url:jdbc:mysql://localhost:3306/NOMBRE_DATABASE?allowPublicKeyRetrieval=true&useSSL=false&useTimezone=true&serverTimezone=GMT&characterEncoding=UTF-8
+spring.datasource.username: root
+spring.datasource.password: root
+spring.datasource.driver-class-name: com.mysql.cj.jdbc.Driver
+spring.jpa.show-sql: true
+spring.jpa.hibernate.ddl-auto: update
+spring.jpa.properties.hibernate.dialect:
+org.hibernate.dialect.MySQL5InnoDBDialect 
+spring.thymeleaf.cache: false
+
+17.	Cambiar NOMBRE_DATABASE
+
+18.	Buscar el MAIN	>>>	Apretar F5
+
+19.	Esperar a que aparezca el logo de SPRING sin ningún error
+
+
+
