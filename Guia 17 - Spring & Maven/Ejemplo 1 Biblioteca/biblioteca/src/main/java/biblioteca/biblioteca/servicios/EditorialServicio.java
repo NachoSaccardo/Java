@@ -5,7 +5,7 @@
  */
 package biblioteca.biblioteca.servicios;
 
-import biblioteca.biblioteca.entidades.Autor;
+
 import biblioteca.biblioteca.entidades.Editorial;
 import biblioteca.biblioteca.excepciones.MiException;
 import biblioteca.biblioteca.repositorios.EditorialRepositorio;
@@ -30,7 +30,7 @@ public class EditorialServicio {
         Editorial editorial = new Editorial();
         
         //Valido el ingreso de datos
-        validar(editorial.getId(), nombre);
+        validar(nombre);
         
         //Si esta OK le seteo el nombre
         editorial.setNombre(nombre);
@@ -50,7 +50,7 @@ public class EditorialServicio {
     public void modificarAutor(String id, String nombre) throws MiException{
         
         //Valido el ingreso de datos
-        validar(id, nombre);
+        validar(nombre);
         
         Optional<Editorial> respuesta = editorialRepositorio.findById(id);
         /*Optional es un espacio que puede o no contener un objeto del tipo que le defino entre <>. Si no lo encuentra, queda Null
@@ -65,13 +65,8 @@ public class EditorialServicio {
         }
     }
     
-        private void validar(String id, String nombre) throws MiException
+        private void validar(String nombre) throws MiException
     {
-        if(id.isEmpty()||id==null)
-        {
-            throw new MiException("El id de Editorial no puede ser nulo ni estar vacio");
-        }
-        
         if(nombre==null||nombre.isEmpty())
         {
             throw new MiException("El nombre no puede ser nulo ni estar vacio");

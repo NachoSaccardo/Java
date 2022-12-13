@@ -25,13 +25,14 @@ public class AutorServicio {
     @Transactional
     public void crearAutor(String nombre) throws MiException{
         Autor autor = new Autor();
-        
+        System.out.println("Autor instanciado: OK");
         //Valido el ingreso de datos
-        validar(autor.getId(), nombre);
-        
+        validar(nombre);
+        System.out.println("Nombre validado: OK");
         autor.setNombre(nombre);
-        
+        System.out.println("Nombre seteado: OK");
         autorRepositorio.save(autor);
+        System.out.println("Autor guardado: OK");
     }
     
     /*Metodos para listar TDOOS los autores*/
@@ -45,7 +46,7 @@ public class AutorServicio {
     public void modificarAutor(String id, String nombre) throws MiException{
        
         //Valido el ingreso de datos
-        validar(id, nombre);
+        validar(nombre);
         
         Optional<Autor> respuesta = autorRepositorio.findById(id);
         /*Optional es un espacio que puede o no contener un objeto del tipo que le defino entre <>. Si no lo encuentra, queda Null
@@ -61,13 +62,8 @@ public class AutorServicio {
         }
     }
     
-    private void validar(String id, String nombre) throws MiException
+    private void validar(String nombre) throws MiException
     {
-        if(id.isEmpty()||id==null)
-        {
-            throw new MiException("El id de Autor no puede ser nulo ni estar vacio");
-        }
-        
         if(nombre==null||nombre.isEmpty())
         {
             throw new MiException("El nombre no puede ser nulo ni estar vacio");
