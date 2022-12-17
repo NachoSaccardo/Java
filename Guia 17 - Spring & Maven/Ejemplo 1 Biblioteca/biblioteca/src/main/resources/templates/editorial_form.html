@@ -7,7 +7,7 @@ and open the template in the editor.
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <head>
         <meta charset="UTF-8">
-        <title>FormAutor</title>
+        <title>FormEditorial</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
@@ -18,16 +18,16 @@ and open the template in the editor.
     <body>
         <header>
             <div class="container"> 
-                <h2>Cargar Autor</h2>
+                <h2>Cargar Editorial</h2>
             </div>
         </header>
         
         <div class="container-fluid m-5 contenedor">
             <!-- Se va a ejecutar la accion "submit" del boton a traves del metodo post, mediante la URL /autor/registro-->
-            <form class="formulario" action="/autor/registro" method="POST"> 
+            <form class="formulario" action="/editorial/registro" method="POST"> 
                 <div class="form-group my-3">
                     <label class="mb-2">Cargar Autor</label>
-                    <input name="nombre" type="text" class="form-control" placeholder="Nombre del Autor"> <!--El input envia datos encerrados en la caja, con el nombre que le ponga en name-->
+                    <input name="nombre" type="text" class="form-control" placeholder="Nombre de la Editorial"> <!--El input envia datos encerrados en la caja, con el nombre que le ponga en name-->
                 </div>
             
                 

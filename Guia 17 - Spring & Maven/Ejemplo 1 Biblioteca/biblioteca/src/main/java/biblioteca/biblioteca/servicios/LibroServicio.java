@@ -52,19 +52,36 @@ public class LibroServicio {
     //Estos datos van a llegar a traves de unb formulario de HTML y necesito, con ellos, instanciar una entidad
     {
         
-        /*Chequeo que los valores que ingrese el usuario no vengan vacios)*/
+        //Valido que los datos de entrada no vengan vacios
         validar(isbn, titulo, ejemplares, idAutor, idEditorial);
           
-        Libro libro = new Libro();
-        
-        /*Uso un metodo propio de JPA Repository*/
-        /*Como creé el atributo libroRepositorio, ya puedo llamar a los metodos 
-        que tiene JPA Repository porque LibroRepositorio extiende de ella*/
-        
+        //Libro libro = libroRepositorio.findById(isbn).get();
+        /*Podria usar este metodo para buscar el libro, pero si no existe me tira una excepcion. La alternativa es usar Optional*/
+        Optional<Libro> respuesta = libroRepositorio.findById(isbn);
         //Uso el metodo findById y le paso como parametro el id del autor. FindById devuelve un Optional, con el .get() capturo el objeto Autor
-        Autor autor = autorRepositorio.findById(idAutor).get();
-        Editorial editorial = editorialRepositorio.findById(idEditorial).get();
-         
+        Optional<Autor> respuestaAutor = autorRepositorio.findById(idAutor);
+        Optional<Editorial> respuestaEditorial = editorialRepositorio.findById(idEditorial);
+        /*Optional es un espacio que puede o no contener un objeto del tipo que le defino entre <>. Si no lo encuentra, queda Null
+        Entonces, con un if, digo que si devolvio un valor, entonces lo uso metiendolo adentro de mi variable libro o autor o editorial. 
+        Hago lo mismo para Autor y Editorial xq el usuario lo va a ingresar */
+        
+        
+        //Instancio un autor y una editorial vacios, si la respuesta del optional no esta vacia, le asigno los valores
+        Autor autor = new Autor();
+        Editorial editorial= new Editorial();
+        
+        if(respuestaAutor.isPresent())
+        {
+            autor = respuestaAutor.get();
+        }
+        
+        if(respuestaEditorial.isPresent())
+        {
+            editorial = respuestaEditorial.get();
+        }
+      
+        Libro libro = new Libro();
+       
         libro.setIsbn(isbn);
         libro.setTitulo(titulo);
         libro.setEjemplares(ejemplares);
@@ -126,35 +143,27 @@ public class LibroServicio {
             libro.setEjemplares(ejemplares);
             libroRepositorio.save(libro);
         }
-
     }
     
-    private void validar(Long isbn, String titulo, Integer ejemplares, String idAutor, String idEditorial) throws MiException
-    {
-        if(isbn==null)
-        {
-            throw new MiException("El isbn no puede ser nulo");
+    private void validar(Long isbn, String titulo, Integer ejemplares, String idAutor, String idEditorial) throws MiException{
+       
+        if(isbn == null){
+            throw new MiException("el isbn no puede ser nulo"); //
         }
-            
-        if(titulo.isEmpty()||titulo==null)
-        {
-            throw new MiException("El titulo no puede ser nulo ni estar vacio");
+        if(titulo.isEmpty() || titulo == null){
+            throw new MiException("el titulo no puede ser nulo o estar vacio");
         }
-        
-          if(idAutor.isEmpty()||idAutor==null)
-        {
-            throw new MiException("El id de Autor no puede ser nulo ni estar vacio");
+        if(ejemplares == null){
+            throw new MiException("ejemplares no puede ser nulo");
         }
-          
-            if(idEditorial.isEmpty()||idEditorial==null)
-        {
-            throw new MiException("El id de Editorial no puede ser nulo ni estar vacio");
+        if(idAutor.isEmpty() || idAutor == null){
+            throw new MiException("el Autor no puede ser nulo o estar vacio");
         }
         
-          if(ejemplares==null)
-        {
-            throw new MiException("la cantidad de ejemplares no puede ser nula");
+        if(idEditorial.isEmpty() || idEditorial == null){
+            throw new MiException("La Editorial no puede ser nula o estar vacia");
         }
     }
+    
 }
 

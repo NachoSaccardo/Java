@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <meta charset="UTF-8">
+        <title>Panel Administrador</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+        crossorigin="anonymous">
+        <link rel="stylesheet" href="estilos.css">
+        
+
+    </head>
+    <body>
+
+        <div class="container-fluid" id="background-image">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#"><img src="../static/eggLogo.png" width="80" height="38" alt="" loading="lazy"><strong>Noticias</strong> </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+    
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        AdminPanel
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="../templates/panelAdmin.html">Ver Noticias</a>
+                        <a class="dropdown-item" href="../templates/noticia_form.html">Crear Noticia</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Log Out</a>
+                      </div>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#" tabindex="-1" ">Contacto</a>
+                    </li>
+                  </ul>
+                  <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                  </form>
+                </div>
+            </nav>
+            
+        
+        <div class="container m-5">
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th>Id Noticia</th>
+                        <th>Titulo</th>
+                        <th colspan="3" class="text-center">Acciones</th>
+                    </tr>
+                </thead>
+                <!-- Nuevamante voy a iterar la lista de autores para mostrarlos en la tabla -->
+                <tbody th:each="noticia : ${noticias}">
+                    <tr>
+                        <th scope="row" th:text="${noticia.id}"></th>
+                        <td th:text="${noticia.titulo}"></td>
+                        <td class="text-center">
+                            <!-- Estoy diciendole que este link me va a llevar a la vista "autor/modificar", pasandole a este metodo la variable id. Esto
+                            va al GetMapping autor/modificar-->
+                            <a th:href="@{/noticia/visualizar/__${noticia.id}__}"><i class="fas fa-feather-alt"></i>Ver Noticia</a>
+                        </td>
+                        <td class="text-center">
+                            <!-- Estoy diciendole que este link me va a llevar a la vista "autor/modificar", pasandole a este metodo la variable id. Esto
+                            va al GetMapping autor/modificar-->
+                            <a th:href="@{/noticia/modificar/__${noticia.id}__}"><i class="fas fa-feather-alt"></i>Modificar</a>
+                        </td>
+                        <td class="text-center">
+                            <!-- Estoy diciendole que este link me va a llevar a la vista "autor/eliminar", pasandole a este metodo la variable id. Esto
+                            va al PostMapping autor/modificar-->
+                            <a th:href="@{/noticia/eliminar/__${noticia.id}__}"><i class="fas fa-feather-alt"></i>Eliminar</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+        <!-- uso un div con un tag de Thymeleaf, th:if. 
+        Sintaxis: Recibe variables a traves del simbolo $, entre llaves {}. En este caso le mando la llave del modelo que cree en LibroControlador
+        que se llama error. Si recibe el modelo error, no va a ser null, entonces ejecuta el parrafo.. -->
+        <div th:if="${error} != null" class="card text-white bg-danger mb-3 mensajeError"> 
+            <div class="card-body">
+                <h5 class="card-title">Error</h5>
+                <p class="card-text" th:text="${error}"></p>
+                <!-- Para escribir en pantalla, uso el metodo de Thymeleaf th.text, y lo que le mando es la llave del metodo error -->
+            </div>
+        </div>
+        
+        
+        <button class="btn btn-secondary"><a href="../">Volver</button>
+
+        <div th:if="${exito}!= null" class="card text-white bg-success mb-3 mt-3 mensajeExito" >
+            <div class="card-body">
+                <h5 class="card-title">Exito!</h5>
+                <p class="card-text" th:text="${exito}"></p>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-
+        DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-
+        ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>  
+        <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>  
+
+    </body>
+    
+    
+</html>

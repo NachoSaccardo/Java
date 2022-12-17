@@ -40,7 +40,7 @@ public class EditorialServicio {
     
         /*Metodos para listar TODAS las editoriales*/
     
-    public List<Editorial>  listarLibros(){
+    public List<Editorial>  listarEditoriales(){
         List<Editorial> editoriales = new ArrayList();
         editoriales = editorialRepositorio.findAll();
         return editoriales;

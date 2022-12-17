@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head>
+        <meta charset="UTF-8">
+        <title>FormAutor</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+        crossorigin="anonymous">
+
+    </head>
+    <body>
+        <header>
+            <div class="container"> 
+                <h2>Modificar Autores</h2>
+            </div>
+        </header>
+        
+        <div class="container-fluid m-5 contenedor">
+            <!-- Se va a ejecutar la accion "submit" del boton a traves del metodo post, mediante la URL /autor/registro-->
+            <form class="formulario" th:action="@{/autor/modificar/__${autor.id}__}" method="POST"> 
+                <!-- Le paso la "variable de pre-procesamiento autor.id, que recibi de la vista autor_list.html,
+                para que con esa, busque el autor a modificar. Todo esto corre a traves del metodo @GetMapping modificar(@PathVariable String id)" -->
+
+                <div class="form-group my-3"></div>
+                    <!-- Con esto le estoy diciendo que va a haber un campo que contenga el id, pero va a estar oculto. Lo incluyo porque lo 
+                    necesito tener dentro del form para cuando le pase los valores al metodo @PostMapping modificar(), que necesida id y nombre-->
+                    <input hidden th:value="${id}" name="id">
+
+                    <!-- En esta caja de input uso la equiqueta de Thymeleaf ${autor.nombre}, le digo que va a viajar en ella esa variable. -->
+                    <label class="mb-2">Modificar Autor</label>
+                    <input name="nombre" type="text" class="form-control" th:text="${autor.nombre}"> 
+                    <!--El input envia datos encerrados en la caja, con el nombre que le ponga en name-->
+                </div>
+            
+                <button type="submit" class="btn btn-primary">Modificar</button>
+
+            </form>
+        </div>
+        
+        <!-- uso un div con un tag de Thymeleaf, th:if. 
+        Sintaxis: Recibe variables a traves del simbolo $, entre llaves {}. En este caso le mando la llave del modelo que cree en LibroControlador
+        que se llama error. Si recibe el modelo error, no va a ser null, entonces ejecuta el parrafo.. -->
+        <div th:if="${error} != null" class="card text-white bg-danger mb-3 mensajeError"> 
+            <div class="card-body">
+                <h5 class="card-title">Error</h5>
+                <p class="card-text" th:text="${error}"></p>
+                <!-- Para escribir en pantalla, uso el metodo de Thymeleaf th.text, y lo que le mando es la llave del metodo error -->
+            </div>
+        </div>
+
+        <div th:if="${exito}!= null" class="card text-white bg-success mb-3 mt-3 mensajeExito" >
+            <div class="card-body">
+                <h5 class="card-title">Exito!</h5>
+                <p class="card-text" th:text="${exito}"></p>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-
+        DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-
+        ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"></script>    
+    </body>
+    
+    
+</html>

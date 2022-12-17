@@ -10,6 +10,7 @@ import javax.persistence.TemporalType;
 
 @Entity 
 public class Libro {
+    
     @Id
     private Long isbn;
     
@@ -26,15 +27,6 @@ public class Libro {
     private Editorial editorial;
 
     public Libro() {
-    }
-
-    public Libro(Long isbn, String titulo, Integer ejemplares, Date alta, Autor autor, Editorial editorial) {
-        this.isbn = isbn;
-        this.titulo = titulo;
-        this.ejemplares = ejemplares;
-        this.alta = alta;
-        this.autor = autor;
-        this.editorial = editorial;
     }
 
     public Long getIsbn() {

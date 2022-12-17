@@ -25,18 +25,18 @@ public class AutorServicio {
     @Transactional
     public void crearAutor(String nombre) throws MiException{
         Autor autor = new Autor();
-        System.out.println("Autor instanciado: OK");
+
         //Valido el ingreso de datos
         validar(nombre);
-        System.out.println("Nombre validado: OK");
+
         autor.setNombre(nombre);
-        System.out.println("Nombre seteado: OK");
+
         autorRepositorio.save(autor);
-        System.out.println("Autor guardado: OK");
+ 
     }
     
     /*Metodos para listar TDOOS los autores*/
-    public List<Autor>  listarLibros(){
+    public List<Autor>  listarAutores(){
         List<Autor> autores = new ArrayList();
         autores = autorRepositorio.findAll();
         return autores;
@@ -62,11 +62,23 @@ public class AutorServicio {
         }
     }
     
+    @Transactional
+    public void eliminarAutor(String id)
+    {
+        autorRepositorio.deleteById(id);
+    }
+    
     private void validar(String nombre) throws MiException
     {
         if(nombre==null||nombre.isEmpty())
         {
             throw new MiException("El nombre no puede ser nulo ni estar vacio");
         }
+    }
+    
+    public Autor getOne(String id)
+    {
+        //Este metodo busca a traves del repositorio, un objeto usando su id
+        return autorRepositorio.getOne(id);
     }
 }
