@@ -6,9 +6,11 @@
 package eggNoticias.servicios;
 
 import eggNoticias.entidades.Noticia;
+import static eggNoticias.entidades.Noticia.compararFecha;
 import eggNoticias.excepciones.MiException;
 import eggNoticias.repositorios.NoticiaRepositorio;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
@@ -28,6 +30,7 @@ public class NoticiaServicio
         Noticia noticia = new Noticia();
         noticia.setTitulo(titulo);
         noticia.setCuerpo(cuerpo);
+        noticia.setFecha(new Date());
         noticiaRepositorio.save(noticia);
     
     }
@@ -58,7 +61,9 @@ public class NoticiaServicio
     {
         List<Noticia> listaNoticias = new ArrayList();
         listaNoticias = noticiaRepositorio.findAll();
+        listaNoticias.sort(compararFecha);
         return listaNoticias;
+        
     }
         
     public void validarNoticia(String titulo, String cuerpo) throws MiException

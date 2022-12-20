@@ -48,7 +48,8 @@ public class NoticiaControlador
         {
             noticiaServicio.crearNoticia(titulo, cuerpo);
             modelo.put("exito", "La noticia fue cargado correctamente");
-            return "panelAdmin.html";
+            
+            return "redirect:/noticia/panelAdmin";
    
         }
         catch(MiException ex)

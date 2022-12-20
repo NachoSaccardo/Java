@@ -1,0 +1,18 @@
+
+#background-image{
+    
+    background: #ffffff url('/img/fondoEgg.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    justify-content: flex-end;
+    height: 1500px;
+    
+}
+
+
+#bodyPadding{
+    padding-top: 65px;
+}
+
